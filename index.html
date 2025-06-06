@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página de Vendas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #0056b3;
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background: #004a99;
+      padding: 15px 0;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
+    }
+
+    .menu a:hover {
+      border-bottom: 2px solid #fff;
+      color: #aad4ff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 300px;
+      background: url('img/banner.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .product-section {
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .product-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product-item {
+      width: 300px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .product-item h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product-item p {
+      padding: 0 10px;
+      font-size: 0.95em;
+    }
+
+    .product-item a button {
+      margin-top: 10px;
+      background-color: #25D366;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .product-item a button:hover {
+      background-color: #1da851;
+    }
+
+    .cta {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cta a {
+      text-decoration: none;
+    }
+
+    .cta button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .cta .whatsapp:hover {
+      background: #1da851;
+    }
+
+    .cta .email {
+      background: #007bff;
+      color: white;
+    }
+
+    .cta .email:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+    }
+
+    .modal-content:hover {
+      transform: scale(1.1);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+    
+<!-- MinionCódigo - Banner para README ou projeto -->
+<div id="minion-banner">
+    <img src="/img/banner.jpg.jpg" alt="Banner Minion" />
+  </div>
+  
+  <style>
+    #minion-banner {
+      width: 100%;
+      background-color: #ddd; /* Cor de fundo para caso imagem não carregue */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom:0px; /* Espaço embaixo para separar do 'Bem-vindo' */
+    }
+  
+    #minion-banner img {
+      width: 100%;
+      max-height:300px;
+      object-fit: cover; /* Corta e preenche a área sem distorcer */
+      display: block;
+    }
+  </style>
+  
+  
+  <header>
+    <h1>Bem-vindo à Nossa Página de Vendas</h1>
+    <p>Oferecemos os melhores produtos e serviços para você!</p>
+  </header>
+  
+
+  <nav class="menu">
+    <a href="#products">Produtos</a>
+    <a href="#contact">Contato</a>
+    <a href="#history">Nossa História</a>
+  </nav>
+
+  <div class="container">
+    <section id="products" class="product-section">
+      <h2>Nossos Produtos</h2>
+      <div class="product">
+        <div class="product-item">
+          <img src="img/planta 9.jpg" alt="Produto 1" onclick="openModal(this.src)">
+          <h3>Produto 1</h3>
+          <p>Descrição breve do produto 1.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20o%20Produto%201" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+
+        <div class="product-item">
+          <img src="img/planta 8.jpg" alt="Produto 2" onclick="openModal(this.src)">
+          <h3>Produto 2</h3>
+          <p>Descrição breve do produto 2.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20o%20Produto%202" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+
+        <div class="product-item">
+          <img src="img/planta 6.jpg" alt="Produto 3" onclick="openModal(this.src)">
+          <h3>Produto 3</h3>
+          <p>Descrição breve do produto 3.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20o%20Produto%203" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+
+        <div class="product-item">
+          <img src="img/planta 2.webp" alt="Muda 1" onclick="openModal(this.src)">
+          <h3>Muda de Planta 1</h3>
+          <p>Muda saudável para plantio em vaso ou jardim.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20a%20Muda%20de%20Planta%201" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+
+        <div class="product-item">
+          <img src="img/planta 3.jpg" alt="Muda 2" onclick="openModal(this.src)">
+          <h3>Muda de Planta 2</h3>
+          <p>Ideal para cultivo interno ou externo.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20a%20Muda%20de%20Planta%202" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+
+        <div class="product-item">
+          <img src="img/planta 5.jpg" alt="Muda 3" onclick="openModal(this.src)">
+          <h3>Muda de Planta 3</h3>
+          <p>Perfeita para iniciantes em jardinagem.</p>
+          <a href="https://wa.me/5581985844003?text=Quero%20comprar%20a%20Muda%20de%20Planta%203" target="_blank">
+            <button>Comprar</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <p>Entre em contato conosco para mais informações!</p>
+      <a href="https://wa.me/5581985844003" target="_blank">
+        <button class="whatsapp">
+          📱 <img src="https://img.icons8.com/ios-filled/20/ffffff/whatsapp.png" alt="WhatsApp"> WhatsApp
+        </button>
+      </a>
+      <a href="mailto:email@example.com">
+        <button class="email">📧 E-mail</button>
+      </a>
+    </section>
+
+    <section id="history" class="product-section">
+      <h2>Nossa História</h2>
+      <p>Saiba mais sobre a nossa trajetória e como nos tornamos referência no mercado.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+  </footer>
+
+  <div id="image-modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-image" />
+  </div>
+
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById("image-modal");
+      const modalImage = document.getElementById("modal-image");
+      modal.style.display = "block";
+      modalImage.src = src;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("image-modal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
